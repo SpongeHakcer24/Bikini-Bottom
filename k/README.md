@@ -1,6 +1,6 @@
-# Quantum Lattice Solver
+# Bikini Bottom
 
-High-performance stochastic convergence engine for multi-dimensional tensor resolution.
+Bounded Isotropic Kernel Inversion Network Interface Bayesian Orthogonal Transform Tensor Optimization Model.
 
 ## Features
 
