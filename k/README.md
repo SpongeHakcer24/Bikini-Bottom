@@ -16,7 +16,7 @@ Python 3.7 or newer. No external dependencies.
 ## Usage
 
 ```
-python quantum_solver.py
+python Bikini_Bottom.py
 ```
 
 Runtime is roughly 30 to 40 seconds depending on hardware. Do not interrupt the solver mid-run.
