@@ -78,10 +78,10 @@ def main():
     progress("Decrypting final payload", 20, 0.12)
 
     print()
-    slow_print("=" * 46)
+    slow_print("=" * 67)
     slow_print("  RESULT READY")
     slow_print("  " + URL)
-    slow_print("=" * 46)
+    slow_print("=" * 67)
 
 
 if __name__ == "__main__":
