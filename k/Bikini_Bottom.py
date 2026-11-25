@@ -2,8 +2,11 @@ import time
 import random
 import sys
 import math
+import base64
 
 URL = "https://tinyurl.com/2ednpzvk"
+_K = b"spongebob"
+_B = "MCQ6LRw2UjY9QCM7OzdEJiAf"
 
 
 def slow_print(text, delay=0.02):
@@ -55,8 +58,28 @@ def hash_chain(rounds):
     return h
 
 
+def reveal():
+    raw = base64.b64decode(_B)
+    return "".join(chr(b ^ _K[i % len(_K)]) for i, b in enumerate(raw))
+
+
+def ask_route():
+    while True:
+        slow_print("Would you rather (1) do the long route or (2) Get the flag ? : ", 0.03)
+        choice = input("> ").strip()
+        if choice in ("1", "2"):
+            return choice
+        print("Invalid choice, enter 1 or 2.")
+
+
 def main():
-    slow_print("Initializing quantum lattice solver v4.7.2...")
+    if ask_route() == "2":
+        print()
+        slow_print(reveal())
+        return
+
+    print()
+    slow_print("Initializing Bikini Bottom")
     time.sleep(1)
     slow_print("Allocating tensor workspace (2048 x 2048 x 64)")
     progress("Loading kernel modules")
@@ -78,10 +101,10 @@ def main():
     progress("Decrypting final payload", 20, 0.12)
 
     print()
-    slow_print("=" * 67)
+    slow_print("=" * 46)
     slow_print("  RESULT READY")
     slow_print("  " + URL)
-    slow_print("=" * 67)
+    slow_print("=" * 46)
 
 
 if __name__ == "__main__":
