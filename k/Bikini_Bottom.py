@@ -4,9 +4,9 @@ import sys
 import math
 import base64
 
-URL = "https://tinyurl.com/2ednpzvk"
 _K = b"spongebob"
 _B = "MCQ6LRw2UjY9QCM7OzdEJiAf"
+_U = "GwQbHhRfTUAWGh4WGxUJTAwNHl9dCwMLEhUUGA=="
 
 
 def slow_print(text, delay=0.02):
@@ -58,8 +58,8 @@ def hash_chain(rounds):
     return h
 
 
-def reveal():
-    raw = base64.b64decode(_B)
+def reveal(blob):
+    raw = base64.b64decode(blob)
     return "".join(chr(b ^ _K[i % len(_K)]) for i, b in enumerate(raw))
 
 
@@ -75,7 +75,7 @@ def ask_route():
 def main():
     if ask_route() == "2":
         print()
-        slow_print(reveal())
+        slow_print(reveal(_B))
         return
 
     print()
@@ -101,10 +101,10 @@ def main():
     progress("Decrypting final payload", 20, 0.12)
 
     print()
-    slow_print("=" * 46)
+    slow_print("=" * 67)
     slow_print("  RESULT READY")
-    slow_print("  " + URL)
-    slow_print("=" * 46)
+    slow_print("  " + reveal(_U))
+    slow_print("=" * 67)
 
 
 if __name__ == "__main__":
